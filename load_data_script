@@ -1,0 +1,51 @@
+superagent localhost:3000/api/v1/notes post '{"noteBody":  "hello world", "author": "me!"}'
+
+{ __v: 0,
+  noteBody: 'hello world',
+  _id: '55e46fafc92cef28027b7b93',
+  author: 'me!' }
+
+
+How do I look in the database?
+
+$mongo
+>show dbs
+>use notesapp_development
+>show collections
+>db.notes.find().pretty()
+
+superagent localhost:3000/api/v1/notes post '{"noteBody": "wow such a note", "author": "doge"}'
+
+
+superagent localhost:3000/api/v1/notes post '{"status": "Completed", "description": "Linked List problem 3"}'
+
+//POST
+superagent localhost:3000/api/v1/problems post '{"status":"Not started","description":"Linked List problem","hints": [{"nameHint": "Hint1", "descHint": "Try using abc."}],"links": [{"linkLabel":"YouTube", "linkUrl":"www.youtube.com"}]}'
+
+// GET
+superagent localhost:3000/api/v1/problems get
+
+
+// PUT
+superagent localhost:3000/api/v1/problems/7865 put '{"status":"Not started","description":"Updated Linked List problem","hints": [{"nameHint": "Hint1", "descHint": "Write out the solution in pseudo code first."}],"links": [{"linkLabel":"YouTube", "linkUrl":"www.youtube.com"}]}'
+
+//DELETE
+superagent localhost:3000/api/v1/problems/0001 delete '{
+      "status": "Not started",
+      "description": "Linked List problem",
+      "hints": [
+        {
+          "nameHint": "Hint1",
+          "descHint": "Try using abc."
+        }
+      ],
+      "links": [
+        {
+          "linkLabel": "YouTube",
+          "linkUrl": "www.youtube.com"
+        }
+      ],
+      "uniqueId": "0001"
+    }'
+
+
